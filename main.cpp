@@ -10,7 +10,7 @@ int main(){
 	cout << "Starting...\n";
 
 
-	unsigned difficulty = 5;
+	unsigned difficulty = 6;
 	vector<Block> blockChain;
 
 
