@@ -10,9 +10,7 @@ using namespace std;
 class Block {
 	
 	private:
-		unsigned nonce;
-		long timeStamp;
-		string data;
+		
 
 
 	public:
@@ -24,6 +22,9 @@ class Block {
 
 		string hash;
 		string previousHash;
+		unsigned nonce;
+		long timeStamp;
+		string data;
 
 };
 

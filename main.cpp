@@ -10,7 +10,7 @@ int main(){
 	cout << "Starting...\n";
 
 
-	unsigned difficulty = 6;
+	unsigned difficulty = 5;
 	vector<Block> blockChain;
 
 
@@ -27,7 +27,8 @@ int main(){
 		blockChain.push_back(*nextBlock);
 		cout << "\n\nAttempting to mine block...\n";
 		blockChain.at(count+1).mineBlock(difficulty);
-		cout << "\n\tHash:          " << blockChain.at(count).hash << "\n\tPrevious Hash: " << blockChain.at(count).previousHash;
+		cout << "\n\tHash:          " << blockChain.at(count).hash << "\n\tPrevious Hash: " << blockChain.at(count).previousHash
+		<< "\n\tNonce:         " << blockChain.at(count).nonce << "\n\tTimeStamp:     " << blockChain.at(count).timeStamp;
 		count++;
 
 	}
