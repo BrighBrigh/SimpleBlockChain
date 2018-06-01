@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+
+#include "block.h"
+
+using namespace std;
+
+int main(){
+
+	cout << "Starting...\n";
+
+
+	unsigned difficulty = 6;
+	vector<Block> blockChain;
+
+
+	Block *tempBlock = new Block("Genesis", "0");
+	blockChain.push_back(*tempBlock);
+	cout << "Attempting to mine block...\n";
+	blockChain.at(0).mineBlock(difficulty);
+
+	unsigned count = 0;
+
+	while(1){
+
+		Block *nextBlock = new Block("Next Block", blockChain.at(count).hash);
+		blockChain.push_back(*nextBlock);
+		cout << "\n\nAttempting to mine block...\n";
+		blockChain.at(count+1).mineBlock(difficulty);
+		cout << "\n\tHash:          " << blockChain.at(count).hash << "\n\tPrevious Hash: " << blockChain.at(count).previousHash;
+		count++;
+
+	}
+
+	return 0;
+}
