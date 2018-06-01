@@ -24,7 +24,6 @@ void Block::mineBlock(unsigned difficulty){
 	string target = "";
 	for(unsigned i = 0; i < difficulty; i++) target.append("0");
 	while(hash.substr(0, difficulty) != target){
-		//cout << hash.substr(0, difficulty);
 		nonce++;
 		hash = calculateHash();
 	}
