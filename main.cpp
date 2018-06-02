@@ -11,9 +11,7 @@ int main(){
 
 	unsigned difficulty = 5;
 	vector<Block> blockChain;
-
 	unsigned blockNumber = 0;
-
 
 	Block *tempBlock = new Block("Genesis", "0");
 	blockChain.push_back(*tempBlock);
@@ -26,13 +24,11 @@ int main(){
 
 	blockNumber++;
 
-
 	while(1){
 
 		Block *nextBlock = new Block("Block " + to_string(blockNumber), blockChain.at(blockNumber-1).hash);
-		blockChain.push_back(*nextBlock);
+		blockChain.push_back(*nextBlock);\
 		cout << "\n\nAttempting to mine next block...\n\n";
-
 		blockChain.at(blockNumber).mineBlock(difficulty);
 
 		cout << "\n\tHash:          " << blockChain.at(blockNumber).hash << "\n\tPrevious Hash: " << blockChain.at(blockNumber).previousHash
@@ -42,7 +38,6 @@ int main(){
 		unsigned blockTime = blockChain.at(blockNumber).timeStamp - blockChain.at(blockNumber-1).timeStamp;
 		cout << "\n\tTime to find:  " << blockTime << " seconds"; 
 		
-
 		blockNumber++;
 
 	}
