@@ -19,8 +19,8 @@ int main(){
 	blockChain.at(blockNumber).mineBlock(difficulty);
 
 	cout << "\n\tHash:          " << blockChain.at(blockNumber).hash << "\n\tPrevious Hash: " << blockChain.at(blockNumber).previousHash
-		<< "\n\tNonce:         " << blockChain.at(blockNumber).nonce << "\n\tTimeStamp:     " << blockChain.at(blockNumber).timeStamp << "\n\tData:          "
-		<< blockChain.at(blockNumber).data;
+	<< "\n\tNonce:         " << blockChain.at(blockNumber).nonce << "\n\tTimeStamp:     " << blockChain.at(blockNumber).timeStamp << "\n\tData:          "
+	<< blockChain.at(blockNumber).data;
 
 	blockNumber++;
 
