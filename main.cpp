@@ -7,14 +7,14 @@ using namespace std;
 
 int main(){
 
-	cout << "Starting...\n";
+	cout << "Starting...\n\n";
 
 	unsigned difficulty = 5;
 	vector<Block> blockChain;
 
 	Block *tempBlock = new Block("Genesis", "0");
 	blockChain.push_back(*tempBlock);
-	cout << "Attempting to mine Genesis block...\n";
+	cout << "Attempting to mine Genesis block...\n\n";
 	blockChain.at(0).mineBlock(difficulty);
 
 	cout << "\n\tHash:          " << blockChain.at(0).hash << "\n\tPrevious Hash: " << blockChain.at(0).previousHash
