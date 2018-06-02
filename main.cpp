@@ -12,16 +12,20 @@ int main(){
 	unsigned difficulty = 5;
 	vector<Block> blockChain;
 
+	unsigned blockNumber = 0;
+
+
 	Block *tempBlock = new Block("Genesis", "0");
 	blockChain.push_back(*tempBlock);
 	cout << "Attempting to mine Genesis block...\n\n";
-	blockChain.at(0).mineBlock(difficulty);
+	blockChain.at(blockNumber).mineBlock(difficulty);
 
-	cout << "\n\tHash:          " << blockChain.at(0).hash << "\n\tPrevious Hash: " << blockChain.at(0).previousHash
-		<< "\n\tNonce:         " << blockChain.at(0).nonce << "\n\tTimeStamp:     " << blockChain.at(0).timeStamp << "\n\tData:          "
-		<< blockChain.at(0).data;
+	cout << "\n\tHash:          " << blockChain.at(blockNumber).hash << "\n\tPrevious Hash: " << blockChain.at(blockNumber).previousHash
+		<< "\n\tNonce:         " << blockChain.at(blockNumber).nonce << "\n\tTimeStamp:     " << blockChain.at(blockNumber).timeStamp << "\n\tData:          "
+		<< blockChain.at(blockNumber).data;
 
-	unsigned blockNumber = 1;
+	blockNumber++;
+
 
 	while(1){
 
