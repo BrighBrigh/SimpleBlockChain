@@ -17,6 +17,10 @@ int main(){
 	cout << "Attempting to mine Genesis block...\n";
 	blockChain.at(0).mineBlock(difficulty);
 
+	cout << "\n\tHash:          " << blockChain.at(0).hash << "\n\tPrevious Hash: " << blockChain.at(0).previousHash
+		<< "\n\tNonce:         " << blockChain.at(0).nonce << "\n\tTimeStamp:     " << blockChain.at(0).timeStamp << "\n\tData:          "
+		<< blockChain.at(0).data;
+
 	unsigned blockNumber = 1;
 
 	while(1){
