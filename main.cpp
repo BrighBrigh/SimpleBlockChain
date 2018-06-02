@@ -17,26 +17,25 @@ int main(){
 	cout << "Attempting to mine Genesis block...\n";
 	blockChain.at(0).mineBlock(difficulty);
 
-	unsigned count = 0;
+	unsigned blockNumber = 1;
 
 	while(1){
 
-		if(count > 1){
-			unsigned blockTime = blockChain.at(count).timeStamp - blockChain.at(count-1).timeStamp;
-			cout << "\n\tTime to find:  " << blockTime << " seconds"; 
-		} 
-
-		Block *nextBlock = new Block("Block " + to_string(count), blockChain.at(count).hash);
+		Block *nextBlock = new Block("Block " + to_string(blockNumber), blockChain.at(blockNumber-1).hash);
 		blockChain.push_back(*nextBlock);
-		cout << "\n\nAttempting to mine block...\n\n";
+		cout << "\n\nAttempting to mine next block...\n\n";
 
-		blockChain.at(count+1).mineBlock(difficulty);
+		blockChain.at(blockNumber).mineBlock(difficulty);
 
-		cout << "\n\tHash:          " << blockChain.at(count).hash << "\n\tPrevious Hash: " << blockChain.at(count).previousHash
-		<< "\n\tNonce:         " << blockChain.at(count).nonce << "\n\tTimeStamp:     " << blockChain.at(count).timeStamp << "\n\tData:          "
-		 << blockChain.at(count).data;
+		cout << "\n\tHash:          " << blockChain.at(blockNumber).hash << "\n\tPrevious Hash: " << blockChain.at(blockNumber).previousHash
+		<< "\n\tNonce:         " << blockChain.at(blockNumber).nonce << "\n\tTimeStamp:     " << blockChain.at(blockNumber).timeStamp << "\n\tData:          "
+		<< blockChain.at(blockNumber).data;
 
-		count++;
+		unsigned blockTime = blockChain.at(blockNumber).timeStamp - blockChain.at(blockNumber-1).timeStamp;
+		cout << "\n\tTime to find:  " << blockTime << " seconds"; 
+		
+
+		blockNumber++;
 
 	}
 
